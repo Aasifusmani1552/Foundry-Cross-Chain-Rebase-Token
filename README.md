@@ -1,66 +1,32 @@
-## Foundry
+# 🌐 Cross-Chain Rebase Token
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This repository contains the implementation of a **Cross-Chain Rebase Token** – a special ERC-20 compatible token with automatic rebasing mechanics and support for transferring balances across chains.
 
-Foundry consists of:
+## 🧠 Overview
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+The token features:
+- 📈 **Rebasing Logic**: A modified `balanceOf` function that returns the user's balance including **accrued interest** over time.
+- 🌉 **Cross-Chain Compatibility**: Enables token data and state to be communicated between chains using supporting contracts and configurations.
+- ⚙️ **Deployment Scripts**: Includes Foundry scripts for contract deployment and cross-chain bridging setup.
+- 🖥️ **Bash Scripts**: Two helper bash scripts demonstrate deployment and bridging from Sepolia to zkSync.
 
-## Documentation
+## 🧩 Components
 
-https://book.getfoundry.sh/
+- `RebaseToken.sol`: Main ERC-20 token with rebasing logic in `balanceOf`.
+- Supporting contracts for cross-chain messaging and configuration.
+- `Deployer.s.sol`: Script to deploy contracts on different chains.
+- `BridgeTokens.s.sol`: Script to initiate bridging between networks.
+- `bridgeToZksync.sh`: Deploys and configures contracts on Sepolia and zkSync testnets.
+- `deploy.sh`: Another script if the first one not works
 
-## Usage
+## ⚠️ Important Notice
 
-### Build
+> The provided scripts (`.sh`) **may not work out-of-the-box** on testnets due to dependencies, timing issues, or environment differences.  
+> They are intended as a **reference** to understand the deployment flow, configuration patterns, and bridging logic.
 
-```shell
-$ forge build
-```
+## 🛠️ Setup
 
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+1. Install [Foundry](https://book.getfoundry.sh/getting-started/installation) and ensure you're on the latest version.
+2. Clone the repository and run:
+   ```bash
+   forge install

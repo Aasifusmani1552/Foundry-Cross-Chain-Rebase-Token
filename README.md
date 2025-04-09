@@ -23,6 +23,8 @@ The token features:
 
 > The provided scripts (`.sh`) **may not work out-of-the-box** on testnets due to dependencies, timing issues, or environment differences.  
 > They are intended as a **reference** to understand the deployment flow, configuration patterns, and bridging logic.
+> In foundry.toml file add "rpc_endpoints={ sepolia-eth = "YOUR SEPOLIA RPC URL FROM ALCHEMI OR ANY RPC PROVIDER", arb-sepolia = "YOUR ARBITRUM SEPOLIA RPC URL FROM ALCHEMI OR ANY RPC PROVIDER"}
+"
 
 ## 🛠️ Setup
 
